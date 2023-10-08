@@ -72,3 +72,31 @@ Note
 - You can find instructions on how to use ssh keys from the link below.
 
    [Using SSH Keys](https://dev.to/pwd9000/github-commit-verification-using-ssh-2pim)
+
+ERRORS:
+If you encounter this GPG issue after running git commit:
+"error: gpg failed to sign the data
+fatal: failed to write commit object"
+
+- Follow the below url to setup signed commit https://help.github.com/en/articles/telling-git-about-your-signing-key
+
+if still getting gpg failed to sign the data fatal: failed to write commit object
+
+this is not issue with git ,this is with GPG follow below steps
+
+a. gpg --version
+   echo "test" | gpg --clearsign
+   
+if it is showing:
+
+"gpg: signing failed: Inappropriate ioctl for device
+gpg: [stdin]: clear-sign failed: Inappropriate ioctl for device"
+
+b. export GPG_TTY=$(tty)
+c. echo "test" | gpg --clearsign
+
+d. git config -l | grep gpg
+
+And you will get these messages:
+"gpg.program=gpg
+commit.gpgsign=true"
