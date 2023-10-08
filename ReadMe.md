@@ -84,18 +84,18 @@ if still getting gpg failed to sign the data fatal: failed to write commit objec
 
 this is not issue with git ,this is with GPG follow below steps
 
-a. gpg --version
-   echo "test" | gpg --clearsign
+a. $ gpg --version
+   $ echo "test" | gpg --clearsign
    
 if it is showing:
 
 "gpg: signing failed: Inappropriate ioctl for device
 gpg: [stdin]: clear-sign failed: Inappropriate ioctl for device"
 
-b. export GPG_TTY=$(tty)
-c. echo "test" | gpg --clearsign
+b. $ export GPG_TTY=$(tty)
+c. $ echo "test" | gpg --clearsign
 
-d. git config -l | grep gpg
+d. $ git config -l | grep gpg
 
 And you will get these messages:
 "gpg.program=gpg
