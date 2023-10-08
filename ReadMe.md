@@ -93,6 +93,7 @@ if it is showing:
 gpg: [stdin]: clear-sign failed: Inappropriate ioctl for device"
 
 b. $ export GPG_TTY=$(tty)
+
 c. $ echo "test" | gpg --clearsign
 
 d. $ git config -l | grep gpg
